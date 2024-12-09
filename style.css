@@ -4,7 +4,6 @@ html, body {
   font-family: sans-serif;
 }
 
-/* 背景画像（ページ全体） */
 body {
   display: flex;
   justify-content: center;
@@ -13,12 +12,10 @@ body {
   background-size: cover;
 }
 
-/* カード表示用コンテナ */
 .container {
   perspective: 1000px;
 }
 
-/* カード本体 */
 .card {
   width: 200px;
   height: 300px;
@@ -28,24 +25,21 @@ body {
   cursor: pointer;
 }
 
-/* カードの表裏面 */
 .card-face {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-/* 裏面表示（初期状態はこちらが見える） */
 .card-back {
   background: url('back.jpg') no-repeat center center;
   background-size: cover;
 }
 
-/* 表面（回転後に表示） */
 .card-front {
   background: url('front.jpg') no-repeat center center;
   background-size: cover;
@@ -57,7 +51,6 @@ body {
   transform: rotateY(180deg);
 }
 
-/* 次へボタン */
 #nextButton {
   font-size:1rem;
   padding:10px 20px;
@@ -67,12 +60,10 @@ body {
   cursor:pointer;
 }
 
-/* hiddenクラスで非表示制御 */
 .hidden {
   display: none;
 }
 
-/* 詳細ページ */
 .detail-page {
   position: absolute;
   top:0; left:0;
