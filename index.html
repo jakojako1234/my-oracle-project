@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>3段階オラクルカードテスト</title>
+<title>カード下にボタンを配置</title>
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
@@ -12,18 +12,22 @@
   <div class="card" id="card">
     <div class="card-face card-back"></div>
     <div class="card-face card-front">
-      <button id="nextButton" class="hidden">次へ</button>
+      <!-- front.jpgは背景で表示(または前回までのimgタグ方式も可) -->
     </div>
   </div>
+  
+  <!-- カードの下にボタンを独立配置 -->
+  <div class="next-container">
+    <button id="nextButton" class="hidden">次へ</button>
+  </div>
+
 </div>
 
 <div class="detail-page hidden" id="detailPage">
   <div class="detail-content">
     <h1 class="card-title">カードのタイトル</h1>
     <p class="card-description">
-      長い説明文をここに書きます。<br>
-      ここは3段階目で表示される詳細ページです。<br>
-      (例)このカードはあなたに新たな視点を与え、前進する力を育みます...
+      長い説明文をここに書きます...
     </p>
   </div>
 </div>
