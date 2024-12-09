@@ -1,111 +1,35 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  font-family: sans-serif;
-}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>3段階オラクルカードテスト</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url('background.jpg') center center no-repeat;
-  background-size: cover;
-}
+<div class="container" id="container">
+  <div class="card" id="card">
+    <div class="card-face card-back">
+      <!-- 裏面は今まで通りbackgroundでOK -->
+    </div>
+    <div class="card-face card-front">
+      <!-- ここでimgタグを使い、画像を挿入 -->
+      <img src="front.jpg" alt="card front" class="front-image">
+      <button id="nextButton" class="hidden">次へ</button>
+    </div>
+  </div>
+</div>
 
-.container {
-  perspective: 1000px;
-}
+<div class="detail-page hidden" id="detailPage">
+  <div class="detail-content">
+    <h1 class="card-title">カードのタイトル</h1>
+    <p class="card-description">
+      長い説明文をここに書きます...<br>
+    </p>
+  </div>
+</div>
 
-.card {
-  width: 200px;
-  height: 300px;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.6s ease;
-  cursor: pointer;
-}
-
-/* 共通の.card-faceからflexレイアウトを削除 */
-.card-face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
-
-/* 裏面のみ中央寄せが必要なら個別指定 */
-.card-back {
-  background: url('back.jpg') no-repeat center center;
-  background-size: cover;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.card-front {
-  background: url('front.jpg') no-repeat center center;
-  background-size: cover;
-  transform: rotateY(180deg);
-  position: relative; /* nextButtonをabsolute配置するため */
-}
-
-.card.flipped {
-  transform: rotateY(180deg);
-}
-
-/* 次へボタンを下部中央に配置 */
-#nextButton {
-  font-size:1rem;
-  padding:10px 20px;
-  background:#fff;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.hidden {
-  display: none;
-}
-
-.detail-page {
-  position: absolute;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background: rgba(255,255,255,0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding:20px;
-  box-sizing: border-box;
-  transform: scale(0);
-  transition: transform 0.6s ease;
-}
-
-.detail-page.show {
-  transform: scale(1);
-}
-
-.detail-content {
-  max-width: 80%;
-  background:#fff;
-  padding:20px;
-  border-radius:5px;
-  box-shadow:0 0 10px rgba(0,0,0,0.3);
-}
-
-.card-title {
-  font-size:1.5rem;
-  margin-bottom:20px;
-}
-
-.card-description {
-  line-height:1.5;
-  font-size:1rem;
-}
+<script src="script.js"></script>
+</body>
+</html>
