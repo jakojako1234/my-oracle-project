@@ -1,92 +1,28 @@
-html, body {
+.detail-page {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
   height: 100%;
-  margin: 0;
-  font-family: sans-serif;
-}
-
-body {
+  background: rgba(255,255,255,0.9);
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('background.jpg') center center no-repeat;
-  background-size: cover;
-}
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
 
-/* 初期は.container内にカードがあり、state=2でdetail-pageを表示するときcontainerを非表示にする */
-.container {
-  perspective: 1000px;
-}
-
-.card {
-  width: 200px;
-  height: 300px;
-  position: relative;
-  transform-style: preserve-3d;
+  /* 初期状態はスケール0で表示なし */
+  transform: scale(0);
   transition: transform 0.6s ease;
-  cursor: pointer;
 }
 
-.card-face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-/* 裏面 */
-.card-back {
-  background: url('back.jpg') no-repeat center center;
-  background-size: cover;
-}
-
-/* 表面 */
-.card-front {
-  background: url('front.jpg') no-repeat center center;
-  background-size: cover;
-  transform: rotateY(180deg);
-  position: relative;
-}
-
-.card.flipped {
-  transform: rotateY(180deg);
-}
-
-/* "次へ"ボタン */
-#nextButton {
-  font-size:1rem;
-  padding:10px 20px;
-  background:#fff;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
-}
-
-/* hiddenクラスで非表示制御 */
-.hidden {
-  display: none;
-}
-
-/* 詳細ページ */
-.detail-page {
-  position:absolute;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  background: rgba(255,255,255,0.9);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
-  box-sizing:border-box;
+.detail-page.show {
+  transform: scale(1); /* クラス追加で拡大表示 */
 }
 
 .detail-content {
   max-width: 80%;
-  background:#fff;
+  background: #fff;
   padding:20px;
   border-radius:5px;
   box-shadow:0 0 10px rgba(0,0,0,0.3);
