@@ -58,6 +58,28 @@ body {
   border:none;
   border-radius:5px;
   cursor:pointer;
+
+  .card-front {
+  background: url('front.jpg') no-repeat center center;
+  background-size: cover;
+  transform: rotateY(180deg);
+  position: relative; /* ボタンを絶対配置するためrelative指定 */
+}
+
+/* nextButtonをカード下部中央に配置 */
+#nextButton {
+  font-size:1rem;
+  padding:10px 20px;
+  background:#fff;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
 }
 
 .hidden {
