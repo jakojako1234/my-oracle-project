@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8"/>
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>3段階オラクルカード</title>
+<title>3段階オラクルカードテスト</title>
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+
 <div class="container" id="container">
   <div class="card" id="card">
-    <!-- 裏面 -->
     <div class="card-face card-back"></div>
-    <!-- 表面 -->
     <div class="card-face card-front">
-      <!-- 次へボタンは初期は非表示 -->
       <button id="nextButton" class="hidden">次へ</button>
     </div>
   </div>
 </div>
 
-<!-- 詳細ページ（state=2で表示） -->
 <div class="detail-page hidden" id="detailPage">
   <div class="detail-content">
     <h1 class="card-title">カードのタイトル</h1>
     <p class="card-description">
-      ここにカードの長い解説文が表示されます。<br>
-      このカードはあなたの内なる力を示し、未来へ踏み出す勇気を与えます... (以下長文)
+      長い説明文をここに書きます。<br>
+      ここは3段階目で表示される詳細ページです。<br>
+      (例)このカードはあなたに新たな視点を与え、前進する力を育みます...
     </p>
   </div>
 </div>
