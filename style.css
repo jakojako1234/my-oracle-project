@@ -1,31 +1,37 @@
-.card-front {
-  transform: rotateY(180deg);
-  position: relative; /* 絶対配置の基準 */
-  /* flexは解除し、画像とボタンを上下位置決めしやすくするため非使用に戻す */
-  /* 必要なら軽いpaddingで余白を持たせてもよい */
-  padding: 10px; 
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>カード下にボタンを配置</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
 
-.front-image {
-  display:block;
-  max-height: 80px; 
-  /* 画像をかなり小さく: 80px程度に抑えることで、下部に大きな余裕を確保 */
-  margin: 0 auto; /* 画像を中央寄せ */
-  object-fit: cover;
-}
-
-/* ボタンを絶対配置でカードの下端付近に配置 */
-#nextButton {
-  font-size:1rem;
-  padding:10px 20px;
-  background:#fff;
-  border:none;
-  border-radius:5px;
-  cursor:pointer;
+<div class="container" id="container">
+  <div class="card" id="card">
+    <div class="card-face card-back"></div>
+    <div class="card-face card-front">
+      <!-- front.jpgは背景で表示(または前回までのimgタグ方式も可) -->
+    </div>
+  </div>
   
-  position: absolute;
-  bottom: 10px; /* カード下から10px上に表示 */
-  left: 50%;
-  transform: translateX(-50%);
-}
+  <!-- カードの下にボタンを独立配置 -->
+  <div class="next-container">
+    <button id="nextButton" class="hidden">次へ</button>
+  </div>
+
+</div>
+
+<div class="detail-page hidden" id="detailPage">
+  <div class="detail-content">
+    <h1 class="card-title">カードのタイトル</h1>
+    <p class="card-description">
+      長い説明文をここに書きます...
+    </p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
