@@ -2,7 +2,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
- background: url('background.jpg') no-repeat center center/cover; /* ここを追加・修正 */
+  background: url('background.jpg') no-repeat center center/cover; /* ここを追加・修正 */
   height: 100vh;
   margin:0;
   font-family: sans-serif;
