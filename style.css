@@ -1,37 +1,111 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>カード下にボタンを配置</title>
-<link rel="stylesheet" href="style.css"/>
-</head>
-<body>
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+}
 
-<div class="container" id="container">
-  <div class="card" id="card">
-    <div class="card-face card-back"></div>
-    <div class="card-face card-front">
-      <!-- front.jpgは背景で表示(または前回までのimgタグ方式も可) -->
-    </div>
-  </div>
-  
-  <!-- カードの下にボタンを独立配置 -->
-  <div class="next-container">
-    <button id="nextButton" class="hidden">次へ</button>
-  </div>
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('background.jpg') center center no-repeat;
+  background-size: cover;
+}
 
-</div>
+/* containerを縦方向レイアウトに */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 水平中央寄せ */
+}
 
-<div class="detail-page hidden" id="detailPage">
-  <div class="detail-content">
-    <h1 class="card-title">カードのタイトル</h1>
-    <p class="card-description">
-      長い説明文をここに書きます...
-    </p>
-  </div>
-</div>
+.card {
+  width: 200px;
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+  cursor: pointer;
+}
 
-<script src="script.js"></script>
-</body>
-</html>
+.card-face {
+  position: absolute;
+  width:100%;
+  height:100%;
+  backface-visibility:hidden;
+}
+
+.card-back {
+  background:url('back.jpg') no-repeat center center;
+  background-size:cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.card-front {
+  background:url('front.jpg') no-repeat center center;
+  background-size:cover;
+  transform:rotateY(180deg);
+  position:relative;
+}
+
+.card.flipped {
+  transform:rotateY(180deg);
+}
+
+/* ボタン用のコンテナ。カードの下に余白を確保 */
+.next-container {
+  margin-top: 20px; /* カードとの隙間 */
+}
+
+#nextButton {
+  font-size:1rem;
+  padding:10px 20px;
+  background:#fff;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.hidden {
+  display:none;
+}
+
+.detail-page {
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background: rgba(255,255,255,0.9);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  box-sizing:border-box;
+  transform:scale(0);
+  transition:transform 0.6s ease;
+}
+
+.detail-page.show {
+  transform:scale(1);
+}
+
+.detail-content {
+  max-width:80%;
+  background:rgba(255,255,255,0.8);
+  padding:20px;
+  border-radius:5px;
+  box-shadow:0 0 10px rgba(0,0,0,0.3);
+}
+
+.card-title {
+  font-size:1.5rem;
+  margin-bottom:20px;
+}
+
+.card-description {
+  line-height:1.5;
+  font-size:1rem;
+}
