@@ -1,22 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>オラクルカード</title>
+<title>3段階オラクルカード</title>
 <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-<div class="container">
+<div class="container" id="container">
   <div class="card" id="card">
-    <div class="card-face card-back">
-      <!-- 背景画像はCSSで指定するのでここは空でOK -->
-    </div>
+    <!-- 裏面 -->
+    <div class="card-face card-back"></div>
+    <!-- 表面 -->
     <div class="card-face card-front">
-      <!-- front.jpg が背景として表示される -->
-      <p id="message" class="message"></p>
+      <!-- state=1で表示する"次へ"ボタン -->
+      <button id="nextButton" class="hidden">次へ</button>
     </div>
   </div>
+</div>
+
+<!-- state=2で表示する詳細ページ要素 -->
+<div class="detail-page hidden" id="detailPage">
+  <div class="detail-content">
+    <h1 class="card-title">カードのタイトル</h1>
+    <p class="card-description">
+      ここにカードの長い解説文が表示されます。<br>
+      このカードはあなたの内なる力を示し、未来へ踏み出す勇気を与えます... (以下長文)
+    </p>
 </div>
 
 <script src="script.js"></script>
