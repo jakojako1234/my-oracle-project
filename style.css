@@ -1,17 +1,24 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* 背景設定：ページ全体が背景画像で覆われるようにする */
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url('background.jpg') no-repeat center center/cover; /* ここを追加・修正 */
-  height: 100vh;
-  margin:0;
-  font-family: sans-serif;
+  background: url('background.jpg') center center no-repeat;
+  background-size: cover; /* 画面サイズに応じてカバー表示 */
 }
 
+/* カードコンテナ：3D回転を見せるためのperspective設定 */
 .container {
   perspective: 1000px;
 }
 
+/* カード自体のスタイル */
 .card {
   width: 200px;
   height: 300px;
@@ -21,6 +28,7 @@ body {
   cursor: pointer;
 }
 
+/* カードの表裏面共通設定 */
 .card-face {
   position: absolute;
   width: 100%;
@@ -31,27 +39,40 @@ body {
   align-items:center;
 }
 
+/* 裏面デザイン（背景画像はCSSで設定済みの場合は不要）
+   ここで何も指定しなければ、先にback.jpgを設定済みのはずだが、
+   必要なら以下のように指定する：
+   .card-back {
+     background: url('back.jpg') no-repeat center center;
+     background-size: cover;
+   }
+*/
 .card-back {
-  background: url('back.jpg') no-repeat center center/cover;
+  background: url('back.jpg') no-repeat center center;
+  background-size: cover;
 }
 
+/* 表面デザイン */
 .card-front {
-  background: url('front.jpg') no-repeat center center/cover;
+  background: url('front.jpg') no-repeat center center;
+  background-size: cover;
   transform: rotateY(180deg);
-  position: relative; /* テキスト重ね用 */
+  position: relative;
 }
 
+/* カードがひっくり返ったときの状態 */
 .card.flipped {
   transform: rotateY(180deg);
 }
 
+/* メッセージ表示部分 */
 .message {
   position: absolute;
   color: #333;
-  font-size:1.1rem;
+  font-size: 1.1rem;
   text-align:center;
   padding: 10px;
-  line-height:1.5;
+  line-height: 1.5;
   width: 80%;
   background: rgba(255,255,255,0.8);
   border-radius: 5px;
