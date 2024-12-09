@@ -13,13 +13,13 @@
     <div class="card-face card-back"></div>
     <!-- 表面 -->
     <div class="card-face card-front">
-      <!-- state=1で表示する"次へ"ボタン -->
+      <!-- 次へボタンは初期は非表示 -->
       <button id="nextButton" class="hidden">次へ</button>
     </div>
   </div>
 </div>
 
-<!-- state=2で表示する詳細ページ要素 -->
+<!-- 詳細ページ（state=2で表示） -->
 <div class="detail-page hidden" id="detailPage">
   <div class="detail-content">
     <h1 class="card-title">カードのタイトル</h1>
@@ -27,6 +27,7 @@
       ここにカードの長い解説文が表示されます。<br>
       このカードはあなたの内なる力を示し、未来へ踏み出す勇気を与えます... (以下長文)
     </p>
+  </div>
 </div>
 
 <script src="script.js"></script>
